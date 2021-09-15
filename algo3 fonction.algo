@@ -1,0 +1,52 @@
+PROCEDURE read_array (n:INTEGER,var v1,v2:array of INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    for i from 0 to n-1  step 1 do
+        read (v1[i],v2[i]);
+    end for
+END
+
+ FUNCTION Dot_product ( v1 ,v2 :array_of integer; n ) : integer
+ VAR
+     i,ps:integer;
+ BEGIN
+
+     ps :=0;
+     
+  if (v1.length<>v2.length)then
+      write ("ps vide ")
+      ps:=nan
+   end if 
+
+
+    for i from 0 to n step 1 do
+      for j from 0 to n step 1 do 
+       ps := ps + (v1[i]*v2[j]);
+       end for
+    end for 
+
+     RETURN ps ;
+ END
+
+
+ALGORITHM Dot_product
+VAR 
+  V1,V2 : ARRAY_OF INTEGER [50];
+  i,j,n : integer;
+  ps : integer :=0;
+ result :string;
+
+ begin
+
+  read_array(n,V1);
+  read_array(n,V2);
+    result:=dot_product(n,ps,V1,V2);
+
+  write(ps);
+
+  if (ps=0) then
+  write ("V1 and V2 are orthogonal");
+  end if 
+
+ end
